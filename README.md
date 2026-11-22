@@ -159,6 +159,4 @@ Not tested: a production deployment behind a reverse proxy, multiple worker proc
 - Email notifications when an order changes status.
 - Optional toppings and per-pizza size pricing.
 
-## License
 
-Released under the MIT License. See [LICENSE](LICENSE).
