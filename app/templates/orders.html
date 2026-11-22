@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block script %}orders{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="page-head"><div><h1>My orders</h1><p>Follow each order, and change or cancel it while it's pending.</p></div>
+    <div class="page-head__actions"><a class="btn btn--primary" href="/user/dashboard">Order a pizza</a></div></div>
+  <div class="chips" id="order-filters" role="group" aria-label="Filter orders by status"></div>
+  <div class="order-list" id="order-list" aria-live="polite"></div>
+</div>
+{% endblock %}

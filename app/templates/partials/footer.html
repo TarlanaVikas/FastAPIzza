@@ -1,0 +1,29 @@
+<div class="gingham" aria-hidden="true"></div>
+<footer class="footer on-dark">
+  <div class="container footer__inner">
+    <div>
+      {% set logo_href = "/user/dashboard" if shell == "app" else "/" %}{% include "partials/logo.html" %}
+      <p>Pizza you can order in a few taps, and follow until it arrives.</p>
+    </div>
+    {% if shell == "app" %}
+    <nav aria-label="Footer">
+      <h3>Order</h3>
+      <ul><li><a href="/user/dashboard">Menu</a></li><li><a href="/user/order-data">My orders</a></li><li><a href="/user/contact">Contact</a></li></ul>
+    </nav>
+    <nav aria-label="Account">
+      <h3>Account</h3>
+      <ul><li><a href="/user/profile">Your profile</a></li></ul>
+    </nav>
+    {% else %}
+    <nav aria-label="Footer">
+      <h3>Explore</h3>
+      <ul><li><a href="/#menu">Menu</a></li><li><a href="/#how">How it works</a></li><li><a href="/#contact">Contact</a></li></ul>
+    </nav>
+    <nav aria-label="Account">
+      <h3>Account</h3>
+      <ul><li><a href="/auth/login">Log in</a></li><li><a href="/auth/signup">Create account</a></li></ul>
+    </nav>
+    {% endif %}
+  </div>
+  <div class="container footer__legal">© 2026 FastAPIzza</div>
+</footer>

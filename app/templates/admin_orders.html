@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block script %}admin-orders{% endblock %}
+{% block content %}
+<div class="admin-main">
+  <div class="page-head"><div><h1>Orders</h1><p>Move orders along as they leave the oven.</p></div>
+    <div class="page-head__actions"><button class="btn btn--outline" type="button" id="refresh">{% set n = "refresh" %}{% include "partials/icon.html" %}Refresh</button></div></div>
+  <div class="chips" id="order-filters" role="group" aria-label="Filter orders by status"></div>
+  <div id="order-table" aria-live="polite"></div>
+</div>
+{% endblock %}

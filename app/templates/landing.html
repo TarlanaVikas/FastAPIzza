@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block description %}Pick a pizza, choose your size and follow your order from the oven to your door. Order online with FastAPIzza.{% endblock %}
+{% block script %}landing{% endblock %}
+{% block content %}
+<section class="hero on-dark">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow">Order online</p>
+      <h1 class="hero__title">The quick way to a good pizza.</h1>
+      <p class="hero__lead">Pick a pizza, choose your size and follow your order from the oven to your door.</p>
+      <div class="hero__actions">
+        <a class="btn btn--light" href="#menu">See the menu</a>
+        <a class="btn btn--outline-light" href="/auth/signup" data-guest-only>Create an account</a>
+      </div>
+    </div>
+    <div class="hero__art"><img src="/static/img/pizza-hero.svg" alt="A pepperoni pizza with one slice lifted away, a string of melted cheese stretching between them" width="520" height="540"></div>
+  </div>
+</section>
+<div class="gingham" aria-hidden="true"></div>
+
+<section class="section" id="menu" aria-labelledby="menu-title">
+  <div class="container">
+    <div class="page-head"><div><h2 id="menu-title">On the menu</h2><p>Prices are for a small. Medium, large and extra large cost more; you'll see the total before you order.</p></div>
+      <a class="btn btn--outline" href="/user/dashboard" data-member-only hidden>Open full menu</a></div>
+    <div class="menu-grid" id="menu-list" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="section section--dark on-dark" id="how" aria-labelledby="how-title">
+  <div class="container">
+    <h2 id="how-title">How ordering works</h2>
+    <ol class="steps">
+      <li><span class="steps__meter" data-slices="3"></span><h3>Pick a pizza</h3><p>Browse the menu or search by name. Every pizza shows its starting price.</p></li>
+      <li><span class="steps__meter" data-slices="5"></span><h3>Choose size and quantity</h3><p>The total updates as you choose, so there are no surprises at the end.</p></li>
+      <li><span class="steps__meter" data-slices="8"></span><h3>Follow your order</h3><p>Your order moves from pending to in transit to delivered. Change or cancel it while it's still pending.</p></li>
+    </ol>
+    <div class="hero__actions"><a class="btn btn--light" href="/auth/signup" data-guest-only>Create your account</a><a class="btn btn--outline-light" href="/auth/login" data-guest-only>Log in</a></div>
+  </div>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <div class="container contact-layout">
+    <div><h2 id="contact-title">Say hello</h2><p class="muted contact-layout__lead">Have a question about the menu or an order? Send us a note and the team will see it in their inbox.</p></div>
+    <div class="card" id="contact-card">
+      <form class="form" id="contact-form" novalidate>
+        <div class="field"><label for="c-name">Your name</label><input class="input" id="c-name" name="name" autocomplete="name" required maxlength="100"></div>
+        <div class="field"><label for="c-email">Email</label><input class="input" id="c-email" name="email" type="email" autocomplete="email" required maxlength="120"></div>
+        <div class="field"><label for="c-message">Message</label><textarea class="textarea" id="c-message" name="message" required minlength="5" maxlength="2000"></textarea><p class="field__hint">Questions, allergies, feedback: we read everything.</p></div>
+        <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn btn--primary" type="submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

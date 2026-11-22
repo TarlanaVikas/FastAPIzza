@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block script %}admin-menu{% endblock %}
+{% block content %}
+<div class="admin-main">
+  <div class="page-head"><div><h1>Menu</h1><p>Add, edit or remove the pizzas customers can order.</p></div>
+    <div class="page-head__actions"><button class="btn btn--primary" type="button" id="add-pizza">{% set n = "plus" %}{% include "partials/icon.html" %}Add pizza</button></div></div>
+  <section class="stats" id="admin-stats" aria-label="Overview"></section>
+  <div id="pizza-table" aria-live="polite"></div>
+</div>
+{% endblock %}

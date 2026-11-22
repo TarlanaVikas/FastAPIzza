@@ -1,0 +1,16 @@
+<aside class="sidebar on-dark" id="sidebar" aria-label="Staff navigation">
+  {% set logo_href = "/admin/dashboard" %}{% include "partials/logo.html" %}
+  <p class="sidebar__note">Kitchen view</p>
+  <nav class="sidebar__nav">
+      <a href="/admin/dashboard"{% if active == "menu" %} aria-current="page"{% endif %}>{% set n = "slice" %}{% include "partials/icon.html" %}Menu</a>
+      <a href="/admin/orders"{% if active == "orders" %} aria-current="page"{% endif %}>{% set n = "receipt" %}{% include "partials/icon.html" %}Orders</a>
+      <a href="/admin/users"{% if active == "users" %} aria-current="page"{% endif %}>{% set n = "users" %}{% include "partials/icon.html" %}Customers</a>
+      <a href="/admin/messages"{% if active == "messages" %} aria-current="page"{% endif %}>{% set n = "inbox" %}{% include "partials/icon.html" %}Messages</a>
+      <a href="/admin/profile"{% if active == "profile" %} aria-current="page"{% endif %}>{% set n = "user" %}{% include "partials/icon.html" %}Profile</a>
+  </nav>
+  <div class="sidebar__foot">
+    <div class="sidebar__who" data-sidebar-who></div>
+    <a class="btn btn--ghost btn--sm" href="/user/dashboard">{% set n = "arrow-right" %}{% include "partials/icon.html" %}See the customer view</a>
+    <button class="btn btn--ghost btn--sm" type="button" data-logout>{% set n = "logout" %}{% include "partials/icon.html" %}Log out</button>
+  </div>
+</aside>

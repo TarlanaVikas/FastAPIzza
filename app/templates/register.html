@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block script %}register{% endblock %}
+{% block content %}
+<div class="auth">
+  <aside class="auth__aside on-dark">
+    {% set logo_href = "/" %}{% include "partials/logo.html" %}
+    <div class="auth__pitch"><h2>Your table is ready.</h2><p>Create an account to order your favourite pizza in a few taps.</p></div>
+    <img class="auth__pizza" src="/static/img/pizza-pepperoni.svg" alt="" width="520" height="520">
+  </aside>
+  <section class="auth__main">
+    <div class="auth__card">
+      <h1>Create your account</h1>
+      <p class="muted">Already have one? <a href="/auth/login">Log in</a></p>
+      <form class="form" id="register-form" novalidate>
+        <div class="field"><label for="name">Full name</label><input class="input" id="name" name="name" autocomplete="name" required maxlength="100" autofocus></div>
+        <div class="field"><label for="username">Username</label><input class="input" id="username" name="username" autocomplete="username" required minlength="3" maxlength="25"><p class="field__hint">3 to 25 characters: letters, numbers, dot, dash or underscore.</p></div>
+        <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" autocomplete="email" required maxlength="120"></div>
+        <div class="field"><label for="password">Password</label>
+          <div class="password-wrap"><input class="input" id="password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="128"><button class="password-toggle" type="button" aria-label="Show password">{% set n = "eye" %}{% include "partials/icon.html" %}</button></div>
+          <p class="field__hint">At least 8 characters.</p></div>
+        <div class="field"><label for="image">Profile photo <span class="muted">(optional)</span></label><input class="file-input" id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></div>
+        <button class="btn btn--primary btn--block" type="submit">Create account</button>
+      </form>
+      <p class="auth__back"><a href="/">← Back to the menu</a></p>
+    </div>
+  </section>
+</div>
+{% endblock %}

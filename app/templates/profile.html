@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block script %}profile{% endblock %}
+{% block content %}
+{% if shell == "admin" %}<div class="admin-main">{% else %}<div class="container">{% endif %}
+  <div class="page-head"><div><h1>Your profile</h1><p>Update your details and photo.</p></div></div>
+  <div class="profile">
+    <section class="card profile__who" aria-labelledby="who-title">
+      <div id="profile-avatar"></div>
+      <h2 id="who-title" class="profile__name">&nbsp;</h2>
+      <p class="muted" id="profile-handle"></p>
+      <div id="profile-badges" class="chips"></div>
+      <label class="btn btn--outline btn--sm profile__photo">{% set n = "camera" %}{% include "partials/icon.html" %}Change photo<input class="sr-only" type="file" id="avatar-input" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+    </section>
+    <div class="profile__main">
+      <section class="stats" id="profile-stats" aria-label="Your order totals"></section>
+      <section class="card" aria-labelledby="details-title">
+        <h2 id="details-title" class="card__title">Details</h2>
+        <form class="form" id="profile-form" novalidate>
+          <div class="field"><label for="p-name">Full name</label><input class="input" id="p-name" name="name" required maxlength="100"></div>
+          <div class="field"><label for="p-username">Username</label><input class="input" id="p-username" name="username" required><p class="field__hint">3 to 25 characters: letters, numbers, dot, dash or underscore.</p></div>
+          <div class="field"><label for="p-email">Email</label><input class="input" id="p-email" name="email" type="email" required maxlength="120"></div>
+          <div><button class="btn btn--primary" type="submit">Save changes</button></div>
+        </form>
+      </section>
+      <div><button class="btn btn--outline" type="button" data-logout>{% set n = "logout" %}{% include "partials/icon.html" %}Log out</button></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

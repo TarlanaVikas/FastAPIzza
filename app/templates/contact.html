@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block script %}contact{% endblock %}
+{% block content %}
+<div class="container contact-layout">
+  <div><h1>Contact us</h1><p class="muted contact-layout__lead">Questions about the menu or an order? Send a message and the team will see it in their inbox.</p></div>
+  <div class="card" id="contact-card">
+      <form class="form" id="contact-form" novalidate>
+        <div class="field"><label for="c-name">Your name</label><input class="input" id="c-name" name="name" autocomplete="name" required maxlength="100"></div>
+        <div class="field"><label for="c-email">Email</label><input class="input" id="c-email" name="email" type="email" autocomplete="email" required maxlength="120"></div>
+        <div class="field"><label for="c-message">Message</label><textarea class="textarea" id="c-message" name="message" required minlength="5" maxlength="2000"></textarea><p class="field__hint">Questions, allergies, feedback: we read everything.</p></div>
+        <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn btn--primary" type="submit">Send message</button></form>
+  </div>
+</div>
+{% endblock %}

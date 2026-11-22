@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block script %}dashboard{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="page-head"><div><h1 id="greeting">Menu</h1><p>Pick a pizza to choose your size and place the order.</p></div></div>
+  <div id="latest-order" class="latest" hidden></div>
+  <form class="searchbar" role="search" id="menu-search" novalidate>
+    <label class="sr-only" for="q">Search pizzas by name</label>
+    {% set n = "search" %}{% include "partials/icon.html" %}
+    <input class="input" id="q" name="q" type="search" placeholder="Search pizzas by name" autocomplete="off" maxlength="100">
+  </form>
+  <div class="menu-grid" id="menu-list" aria-live="polite"></div>
+</div>
+{% endblock %}

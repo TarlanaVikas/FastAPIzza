@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-shell="{{ shell }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ app_name }}</title>
+  <meta name="description" content="{% block description %}Order pizza online from FastAPIzza: pick a pizza, choose a size and follow your order from the oven to your door.{% endblock %}">
+  <meta name="theme-color" content="#c8361c">
+  <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/static/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <link rel="preload" href="/static/fonts/bricolage-grotesque-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/static/css/fonts.css">
+  <link rel="stylesheet" href="/static/css/fastapizza.css">
+  <link rel="stylesheet" href="/static/css/pages.css">
+  <noscript><link rel="stylesheet" href="/static/css/noscript.css"></noscript>
+</head>
+<body class="shell-{{ shell }}{% if shell in ('app', 'admin') %} is-booting{% endif %}" data-page="{{ active }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "partials/sprite.html" %}
+  {% if shell == "public" %}{% include "partials/header_public.html" %}
+  {% elif shell == "app" %}{% include "partials/header_app.html" %}
+  {% elif shell == "admin" %}<div class="admin-layout">{% include "partials/sidebar_admin.html" %}<div class="admin-content">
+    <div class="admin-topbar on-dark">
+      <a class="logo" href="/admin/dashboard"><img src="/static/img/logo-mark.svg" alt="" width="40" height="40"><span class="logo__word">Fast<span>API</span>zza</span></a>
+      <button class="icon-btn" type="button" data-sidebar-toggle aria-label="Open navigation" aria-expanded="false">{% set n = "menu" %}{% include "partials/icon.html" %}</button>
+    </div>{% endif %}
+  <main id="main" class="main main--{{ shell }}" tabindex="-1">
+    <noscript><div class="container"><p class="alert alert--info">FastAPIzza needs JavaScript to load the menu and your orders. Turn it on in your browser and reload this page.</p></div></noscript>
+    {% block content %}{% endblock %}
+  </main>
+  {% if shell == "admin" %}</div></div>{% elif shell in ("public", "app") %}{% include "partials/footer.html" %}{% endif %}
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script type="module" src="/static/js/pages/{% block script %}none{% endblock %}.js"></script>
+</body>
+</html>

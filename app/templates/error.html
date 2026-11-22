@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block script %}none{% endblock %}
+{% block content %}
+<section class="container error-page">
+  <img src="/static/img/empty-box.svg" alt="" width="320" height="240">
+  <p class="eyebrow eyebrow--dark">Error {{ code }}</p>
+  <h1>{{ headline }}</h1>
+  <p class="muted">{{ detail }}</p>
+  <div class="hero__actions"><a class="btn btn--primary" href="/">Back to the menu</a></div>
+</section>
+{% endblock %}

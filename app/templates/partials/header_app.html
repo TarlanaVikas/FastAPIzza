@@ -1,0 +1,14 @@
+<header class="topbar">
+  <div class="container topbar__inner">
+    {% set logo_href = "/user/dashboard" %}{% include "partials/logo.html" %}
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/user/dashboard"{% if active == "menu" %} aria-current="page"{% endif %}>Menu</a>
+      <a href="/user/order-data"{% if active == "orders" %} aria-current="page"{% endif %}>My orders</a>
+      <a href="/user/contact"{% if active == "contact" %} aria-current="page"{% endif %}>Contact</a>
+    </nav>
+    <div class="topbar__end">
+      <div class="dropdown" data-user-menu></div>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">{% set n = "menu" %}{% include "partials/icon.html" %}</button>
+    </div>
+  </div>
+</header>

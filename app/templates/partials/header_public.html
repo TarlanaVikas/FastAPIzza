@@ -1,0 +1,14 @@
+<header class="topbar">
+  <div class="container topbar__inner">
+    {% set logo_href = "/" %}{% include "partials/logo.html" %}
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/#menu">Menu</a><a href="/#how">How it works</a><a href="/#contact">Contact</a>
+      <a class="nav__login" href="/auth/login" data-guest-only>Log in</a>
+    </nav>
+    <div class="topbar__end">
+      <span class="topbar__guest" data-guest-only><a class="btn btn--ghost btn--sm topbar__login" href="/auth/login">Log in</a><a class="btn btn--primary btn--sm" href="/auth/signup">Create account</a></span>
+      <a class="btn btn--primary btn--sm" href="/user/dashboard" data-member-only hidden>Open the menu</a>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">{% set n = "menu" %}{% include "partials/icon.html" %}</button>
+    </div>
+  </div>
+</header>
